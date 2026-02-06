@@ -1,7 +1,41 @@
-
 package com.mycompany.ejercicio4;
 
 import java.util.Scanner;
+
+class Familia {
+
+    private double edadJuan;
+    private double edadAlberto;
+    private double edadAna;
+    private double edadMama;
+
+    public Familia(double edadJuan) {
+        this.edadJuan = edadJuan;
+        calcularEdades();
+    }
+
+    private void calcularEdades() {
+        edadAlberto = (2.0 / 3.0) * edadJuan;
+        edadAna = (4.0 / 3.0) * edadJuan;
+        edadMama = edadJuan + edadAlberto + edadAna;
+    }
+
+    public double getEdadJuan() {
+        return edadJuan;
+    }
+
+    public double getEdadAlberto() {
+        return edadAlberto;
+    }
+
+    public double getEdadAna() {
+        return edadAna;
+    }
+
+    public double getEdadMama() {
+        return edadMama;
+    }
+}
 
 public class Ejercicio4 {
 
@@ -9,25 +43,15 @@ public class Ejercicio4 {
 
         Scanner sc = new Scanner(System.in);
 
-        // Datos de entrada
-        int edadJuan;
-        int edadAlberto;
-        int edadAna;
-        int edadMama;
-
         System.out.print("Ingrese la edad de Juan: ");
-        edadJuan = sc.nextInt();
+        double edadJuan = sc.nextDouble();
 
-        // Proceso
-        edadAlberto = (2 * edadJuan) / 3;
-        edadAna = (4 * edadJuan) / 3;
-        edadMama = edadJuan + edadAlberto + edadAna;
+        Familia familia = new Familia(edadJuan);
 
-        // Salida
-        System.out.println("LAS EDADES SON:");
-        System.out.println("ALBERTO = " + edadAlberto);
-        System.out.println("JUAN = " + edadJuan);
-        System.out.println("ANA = " + edadAna);
-        System.out.println("MAMA = " + edadMama);
+        System.out.println("Edad de Juan: " + familia.getEdadJuan());
+        System.out.println("Edad de Alberto: " + familia.getEdadAlberto());
+        System.out.println("Edad de Ana: " + familia.getEdadAna());
+        System.out.println("Edad de la mamá: " + familia.getEdadMama());
     }
 }
+
